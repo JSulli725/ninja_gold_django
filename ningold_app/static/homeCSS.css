@@ -1,0 +1,32 @@
+h4 {
+    margin-left: 10px;
+    height: 5px;
+}
+
+.reset_button {
+    margin-left: 10px;
+}
+
+.location {
+    width: 200px;
+    height: 150px;
+    outline: 5px solid black;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.location, h1, p form{
+    text-align: center;
+}
+
+.activities h3 {
+    margin-left: 10px;
+}
+
+textarea {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 840px;
+    outline: 5px solid black;
+}

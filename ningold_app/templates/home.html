@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homeCSS.css' %}">
+</head>
+<body>
+    <h4>Your Gold: {{ request.session.total_gold }}</h4>
+    <form action="/total_reset" method="POST" class = "reset_button">
+        {% csrf_token %}
+        <button type = "submit" name="reset">Reset</button>
+    </form>
+    <div class = "location">
+        <h1>
+            Farm
+        </h1>
+        <p>
+            (earns 10-20 golds)
+        </p>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <button type ="submit" name="farm">Find Gold!</button>
+        </form>
+        <!-- {{ request.session.farming }} -->
+    </div>
+    <div class = "location">
+        <h1>
+            Cave
+        </h1>
+        <p>
+            (earns 5-10 golds)
+        </p>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <button type ="submit" name="cave">Find Gold!</button>
+        </form>
+        <!-- {{ request.session.caving }} -->
+    </div>
+    <div class = "location">
+        <h1>
+            House
+        </h1>
+        <p>
+            (earns 2-5 golds)
+        </p>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <button type ="submit" name="house">Find Gold!</button>
+        </form>
+        <!-- {{ request.session.house }} -->
+    </div>
+    <div class = "location">
+        <h1>
+            Casino
+        </h1>
+        <p>
+            (earns/takes 0-50 golds)
+        </p>
+        <form action="/process_money" method="POST">
+            {% csrf_token %}
+            <button type ="submit" name="casino">Find Gold!</button>
+        </form>
+        <!-- {{ request.session.gambling }} -->
+    </div>
+    <div class="activities">
+        <h3>Activities:</h3>
+        <textarea cols="30" rows="10">
+            {% for activityType in request.session.activities_history %}
+            {{ activityType }}
+            {% endfor %}
+        </textarea>
+    </div>
+</body>
+</html>
